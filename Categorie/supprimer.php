@@ -1,0 +1,7 @@
+<?php include '../includes/session.php'; ?>
+<?php
+$id= $_GET['id'];
+include '../includes/connexion.php';
+$req = $bd->prepare('delete from Categories where id=?');
+$req->execute([$id]);
+header('location: /learningha/categorie/index.php?msg=deleted');
